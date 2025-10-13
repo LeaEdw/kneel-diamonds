@@ -2,6 +2,7 @@ import { OrdersList } from "./GetTotals.js";
 import { MetalOptions } from "./MetalOptions.js";
 import { SizeOptions } from "./SizeOptions.js";
 import { StyleOptions } from "./StyleOptions.js";
+import { SettingChoice } from "./SettingSelector.js";
 import { SubmissionButton } from "./SubmitSelections.js";
 
 const container = document.querySelector("#container");
@@ -12,28 +13,31 @@ const render = async () => {
   const styleOptionsHTML = await StyleOptions();
   const buttonHTML = SubmissionButton();
   const ordersHTML = await OrdersList();
+  const settingHTML = SettingChoice();
 
   const composedHTML = `
 
-        <article class="choices__metals options">
-            <section>
+        <article class="allChoices">
+            <section class="choices">
                 ${metalOptionsHTML}
             </section>
 
-            <section class="choices__sizes options">
+            <section class="choices">
                 ${sizeOptionsHTML}
             </section>
 
-            <section class="choices__styles options">
+            <section class="choices">
                 ${styleOptionsHTML}
             </section>
 
-            <section class="button">
-                ${buttonHTML}
+            
+            <section class="choices">
+                ${settingHTML}
             </section>
-        
         </article>
-
+            <div class="submit-button-section">
+                ${buttonHTML}
+            </div>
         <article class="customOrders">
                 ${ordersHTML}
 
@@ -44,9 +48,8 @@ const render = async () => {
 };
 
 document.addEventListener("newSelectionCreated", (event) => {
-    console.log("State of data has changed... regenerating HTML...");
-    render();
+  console.log("State of data has changed... regenerating HTML...");
+  render();
 });
 
 render();
-

@@ -12,15 +12,58 @@ header {
 }
 
 h1 {
-    text-align: center;
+  text-align: center;
   font-size: 5vh;
   padding: 30px;
 }
 
-main {
+.allChoices {
   display: flex;
   justify-content: space-around;
+  flex-direction: row;
 }
 
+.choices {
+  padding: 2rem;
+  margin: 15px;
+  border-radius: 0.5rem;
+  box-shadow: 0.25rem 0.25rem 0.5rem rgb(143, 143, 143);
+  background-color: azure;
+}
 
+.button {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  margin: 2rem 0 2rem 2rem;
+}
 
+.submit-button-section {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+#submit-button {
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 15px;
+  background-color: rgb(111, 72, 227);
+  color: rgb(230, 220, 255);
+  font-size: 1rem;
+}
+
+.custom-orders {
+  display: grid;
+  margin: 10px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.receipt-items {
+  background-color: azure;
+  gap: 20px;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0.25rem 0.25rem 0.5rem rgb(143, 143, 143);
+}
