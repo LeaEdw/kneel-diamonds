@@ -1,7 +1,9 @@
 export const OrdersList = async () => {
   // Fetch the orders from the API
 
-  const response = await fetch("http://localhost:8088/orders?_expand=metal&_expand=style&_expand=size");
+  const response = await fetch(
+    "http://localhost:8088/orders?_expand=metal&_expand=style&_expand=size&_expand=setting"
+  );
 
   const orders = await response.json();
 
@@ -11,17 +13,32 @@ export const OrdersList = async () => {
             `;
 
   // Generate HTML for each submission using .map()
-  
 
   let ordersHTML = orders.map((order) => {
     let orderID = String(order.id).padStart(6, "0");
 
-    const orderTotal = order.metal.price + order.size.price + order.style.price
+    let settingMultiplier = parseInt(order.settingId);
+
+    const { metal, size, style } = order;
+    let orderTotal = metal.price + size.price + style.price;
+
+    if (settingMultiplier === 1) { 
+      orderTotal *= 1
+    } else if (settingMultiplier === 2 ) {
+      orderTotal *= 2
+    } else if (settingMultiplier === 3) {
+      orderTotal *= 3
+    } 
 
     return `
-    <div>
+    <div class="receipt-items">
     <p>Order Number: ${orderID}</p>
-    <p> -\tTotal: $${orderTotal}</p>
+    <p 
+    data-metal="${metal.metal}"
+    data-style="${size.carats}"
+    data-size="${style.style}"
+    data-setting="${order.settingId}"
+    > -\tTotal: ($${parseFloat(orderTotal).toFixed(2)})</p>
     </div>
         `;
   });

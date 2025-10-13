@@ -93,27 +93,10 @@
   "orders": [
     {
       "metalId": 1,
-      "sizeId": 3,
-      "styleId": 1,
+      "sizeId": 4,
+      "styleId": 4,
+      "settingId": 3,
       "id": 1
-    },
-    {
-      "metalId": 1,
-      "sizeId": 3,
-      "styleId": 1,
-      "id": 2
-    },
-    {
-      "metalId": 5,
-      "sizeId": 1,
-      "styleId": 3,
-      "id": 3
-    },
-    {
-      "metalId": 1,
-      "sizeId": 2,
-      "styleId": 1,
-      "id": 4
     }
   ]
 }

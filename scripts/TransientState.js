@@ -2,6 +2,7 @@ const transientState = {
   metalId: "",
   sizeId: 0,
   styleId: "",
+  settingId: 0,
   id: 0,
 };
 
@@ -16,6 +17,10 @@ export const setSize = (sizeSelection) => {
 export const setStyle = (styleSelection) => {
   transientState.styleId = styleSelection;
 };
+
+export const setSetting = (settingSelection) => {
+  transientState.settingId = settingSelection;
+}
 
 export const saveCustomSelections = async () => {
     // Get the current transient state ->

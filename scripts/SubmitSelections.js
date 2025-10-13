@@ -1,7 +1,7 @@
 import { saveCustomSelections } from "./TransientState.js";
 
 const handleSelectionSubmission = (clickEvent) => {
-  if (clickEvent.target.id === "submission-button") {
+  if (clickEvent.target.id === "submit-button") {
     saveCustomSelections();
     console.log("Button clicked!");
   }
@@ -10,5 +10,5 @@ const handleSelectionSubmission = (clickEvent) => {
 export const SubmissionButton = () => {
   document.addEventListener("click", handleSelectionSubmission);
   
-  return `<button id='submission-button'>Save Choices</button>`;
+  return `<button id='submit-button'>Save Choices</button>`;
 };
