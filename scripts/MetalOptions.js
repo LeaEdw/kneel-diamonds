@@ -18,7 +18,7 @@ export const MetalOptions = async () => {
 
   const metalsHTML = metals.map((metal) => {
     return `<div>
-                <input type="radio" name="metal" value='${metal.id}' data-price="${metal.price}" /> ${metal.metal}
+                <input type="radio" name="metal" value="${metal.id}" data-price="${metal.price}" /> ${metal.metal}
             </div>`;
   });
 
